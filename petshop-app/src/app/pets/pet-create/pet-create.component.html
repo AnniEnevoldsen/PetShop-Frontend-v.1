@@ -1,0 +1,42 @@
+<p>
+  pet-create works!
+</p>
+
+<div fxLayout="column"
+     fxFill
+     fxLayoutGap="10px">
+  <div fxLayout="row">
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center top">
+    <mat-card fxFlex="33">
+
+      <form [formGroup]="petForm" (ngSubmit)="save()">
+        <div fxLayout="column">
+          <mat-form-field>
+            <input matInput placeholder="Name" formControlName="name">
+          </mat-form-field>
+<!--
+          <mat-form-field>
+            <mat-select id="type" formControlName="type" placeholder="Select Type">
+              <mat-option *ngFor="let t of types" [value]="t.id">
+                {{t.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button mat-mini-fab color="primary" routerLink="/pets">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+-->
+          <div fxLayoutAlign="end center">
+            <button mat-raised-button color="primary" type="submit">Save</button>
+          </div>
+        </div>
+
+      </form>
+    </mat-card>
+  </div>
+
+
+</div>
+

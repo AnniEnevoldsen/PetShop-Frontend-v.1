@@ -1,0 +1,48 @@
+<h1>Pet Details</h1>
+
+<h2>Pet Id:</h2>
+<p>{{pet.id}}</p>
+
+<h3> Pet Name:</h3>
+<p>{{pet.name}}</p>
+
+<p>Start </p>
+<div fxLayout="column"
+     fxFill
+     fxLayoutGap="10px">
+  <div fxLayout="row">
+    <button mat-mini-fab color="primary" routerLink="/pets">
+      <i class="fas fa-arrow-left"></i> Back
+    </button>
+  </div>
+  <div *ngIf="pet"
+       fxLayout="row" fxLayoutAlign="center top">
+    <mat-card fxFlex="33">
+      <mat-card-header>
+        <h2>{{pet.name}}</h2>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Id: {{pet.id}}</p>
+      </mat-card-content>
+      <mat-card-actions fxLayout="row" fxLayoutGap="5px">
+        <span fxFlex></span>
+        <button routerLink="/pet-update/{{pet.id}}"
+                mat-mini-fab
+                color="warn">
+          <i class="fas fa-pen"></i>
+        </button>
+        <button (click)="delete(pet.id)"
+                mat-mini-fab
+                color="accent">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <h4 *ngIf="!pet"
+      fxFill
+      fxLayoutAlign="center center">
+    <mat-spinner></mat-spinner>
+  </h4>
+</div>
+<p>end</p>
